@@ -34,6 +34,21 @@ class WordPressManager:
         except Exception as e:
             return f"Error: {str(e)}"
 
+    def list_plugins(self):
+        try:
+            response = requests.get(f"{self.api_url}/plugins", auth=self.auth)
+            if response.status_code == 200:
+                plugins = response.json()
+                result = []
+                for plugin in plugins:
+                    status = "Update Available" if plugin.get('update') else "Up to date"
+                    result.append(f"- {plugin['name']} ({plugin['version']}) - {status}")
+                return "\n".join(result)
+            else:
+                return f"Failed to fetch plugins. Status: {response.status_code}, Response: {response.text}"
+        except Exception as e:
+            return f"Error: {str(e)}"
+
 if __name__ == "__main__":
     # For now, we test with a default username 'manrahul' - Boss can correct if needed
     manager = WordPressManager("https://www.manrahul.in/", "manrahul", "N2Ea KqZV 0KBU fwuz 1VLj kPHz")
@@ -43,5 +58,14 @@ if __name__ == "__main__":
             print(manager.test_connection())
         elif action == "list":
             print(manager.list_posts())
+        elif action == "plugins":
+            print(manager.list_plugins())
+        elif action == "updates":
+            plugins = manager.list_plugins().split('\n')
+            updates = [p for p in plugins if "Update Available" in p]
+            if updates:
+                print("\n".join(updates))
+            else:
+                print("All plugins are up to date.")
     else:
-        print("Usage: python3 wordpress_manager.py [test|list]")
+        print("Usage: python3 wordpress_manager.py [test|list|plugins]")
