@@ -3,10 +3,11 @@ import sys
 import os
 
 def transcribe(audio_path):
-    model_size = "base" # Use base for speed
+    model_size = "small" # Upgraded from base to small for better Hindi/multilingual accuracy
     try:
         model = WhisperModel(model_size, device="cpu", compute_type="int8")
-        segments, info = model.transcribe(audio_path, beam_size=5)
+        # Added initial_prompt to guide the model towards Hindi/English
+        segments, info = model.transcribe(audio_path, beam_size=5, initial_prompt="Hindi, English, Hinglish audio transcript.")
         
         text = ""
         for segment in segments:
