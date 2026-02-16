@@ -10,9 +10,11 @@ def send_wiz_command(ip, method, params=None):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     try:
         sock.sendto(json.dumps(cmd).encode(), (ip, 38899))
-        sock.settimeout(2)
+        sock.settimeout(0.5) # Shorter timeout
         data, addr = sock.recvfrom(1024)
         return json.loads(data.decode())
+    except socket.timeout:
+        return {"status": "sent", "note": "no ack received"}
     except Exception as e:
         return {"error": str(e)}
     finally:

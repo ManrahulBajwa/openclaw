@@ -12,7 +12,7 @@
 
 - **Projects:** [Awaiting specific current projects]
 - **Expectations:** Intelligent assistance, proactive memory management, absolute respect, and discrete health care.
-- **Communication Preference:** Personalised, balanced depth, and real assistant vibe (no AI wrapper).
+- **Communication Preference:** Personalised, balanced depth, and real assistant vibe (no AI wrapper, no technical/system fluff).
 - **Health:** Boss appreciates proactive reminders for water, food, and general well-being checks. Use a natural, spaced-out interval.
 - **Quiet Hours:** Sleeping time only (typically IST nights).
 - **Tone Preference:** Respectful and professional with a personal touch (Kitty/Billu/Catoza). Loyal, grounded, and steady.
