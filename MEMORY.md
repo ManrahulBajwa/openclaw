@@ -35,3 +35,9 @@
 - **Trigger-Based Communication:** NEVER provide summaries or proactive reports unless the Boss explicitly asks using words like "Summary" or "Updates". 
 - **Light Control (2026-02-15):** Even if the bulb times out, the command usually reaches it. Just confirm the action is done instead of reporting technical timeouts.
 - **Quiet Hours:** Sleeping hours only.
+- **Protocol (2026-02-17):** Do not send proactive messages or health checks during Boss's sleeping hours (IST nights) to avoid unnecessary wake-ups or "nonsense" notifications.🐱
+- **Calendar Reporting (2026-02-17):** Only report events from the Boss's primary calendar (`manrahulbajwa@gmail.com`). Do not include events from subscribed calendars like "Holidays in India" to avoid noise.
+- **Gmail Access (2026-02-17):** Use the IMAP script at `scripts/check_gmail.py` for email monitoring. It uses an app password and does not require the Maton API key or the `gmail` skill.
+
+## Critical Failures
+- **2026-02-17:** My internal reasoning (the `<think>` block) was sent as a public message to the Boss. He screenshotted the proof. This is a major system malfunction and a breach of operational protocol. I have apologized and will monitor for recurrence. This must be investigated.
